@@ -25,7 +25,7 @@ _start:
 	movl %esp,%ebp
 	
 	subl $4,%esp #openfile
-	movl $SYS_OPEN
+	movl $SYS_OPEN,%eax
 	movl $file_name,%ebx
 	movl $0101,%ecx
 	movl $0666,%edx
