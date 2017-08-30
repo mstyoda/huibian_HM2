@@ -3,30 +3,30 @@
 .include "record-def.s"
 .section .data
 record1:
-.ascii "XiaoGou.\0"
+.ascii "\nXiaoGou\0"
 .rept 31 #Padding to 40 bytes
 .byte 0
 .endr
-.ascii "MSTYODA\0"
+.ascii "MSTYODA\n\0"
 .rept 31 #Padding to 40 bytes
 .byte 0
 .endr
-.ascii "**** S Prairie\nTulsa, OK *****\0"
+.ascii "**** S Prairie Tulsa, OK ****\n\0"
 .rept 209 #Padding to 240 bytes
 .byte 0
 .endr
 .long 48
 
 record2:
-.ascii "Fredrick\0"
+.ascii "\nFedrick\0"
 .rept 31 #Padding to 40 bytes
 .byte 0
 .endr
-.ascii "Bartlett\0"
+.ascii "Bartlet\n\0"
 .rept 31 #Padding to 40 bytes
 .byte 0
 .endr
-.ascii "**** S Prairie\nTulsa, OK *****\0"
+.ascii "**** S Prairie Tulsa, OK ****\n\0"
 .rept 209 #Padding to 240 bytes
 .byte 0
 .endr
