@@ -3,6 +3,21 @@
 .include "record-def.s"
 .section .data
 record1:
+.ascii "XiaoGou.\0"
+.rept 31 #Padding to 40 bytes
+.byte 0
+.endr
+.ascii "MSTYODA\0"
+.rept 31 #Padding to 40 bytes
+.byte 0
+.endr
+.ascii "**** S Prairie\nTulsa, OK *****\0"
+.rept 209 #Padding to 240 bytes
+.byte 0
+.endr
+.long 48
+
+record2:
 .ascii "Fredrick\0"
 .rept 31 #Padding to 40 bytes
 .byte 0
@@ -11,11 +26,11 @@ record1:
 .rept 31 #Padding to 40 bytes
 .byte 0
 .endr
-.ascii "4242 S Prairie\nTulsa, OK 55555\0"
+.ascii "**** S Prairie\nTulsa, OK *****\0"
 .rept 209 #Padding to 240 bytes
 .byte 0
 .endr
-.long 45
+.long 50
 
 file_name:
 	.ascii "test.dat\0"
@@ -34,6 +49,11 @@ _start:
 	movl %eax,ST_FILE_DESCRIPTOR(%ebp)#write record1
 	pushl ST_FILE_DESCRIPTOR(%ebp)
 	pushl $record1
+	call write_record
+	addl $8,%esp
+
+	pushl ST_FILE_DESCRIPTOR(%ebp)
+	pushl $record2
 	call write_record
 	addl $8,%esp
 	

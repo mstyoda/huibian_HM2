@@ -44,6 +44,9 @@ record_read_loop:
 	jne finished_reading
 	
 	pushl ST_OUTPUT_DESCRIPTOR(%ebp)#write one 
+	movl $RECORD_AGE+record_buffer,%eax
+	inc %eax
+	movl %eax,$RECORD_AGE+record_buffer
 	pushl $record_buffer
 	call write_record
 	addl $8,%esp
