@@ -41,4 +41,6 @@ _start:
 	movl ST_FILE_DESCRIPTOR(%ebp),%ebx
 	int $LINUX_SYSCALL
 
-	movl %ebp,%esp
+	movl $0, %ebx
+	movl $1, %eax
+	int $0x80
