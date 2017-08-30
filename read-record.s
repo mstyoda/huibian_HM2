@@ -20,4 +20,3 @@ read_record:
 	movl %ebp,%esp
 	popl %ebp
 	ret
-	

@@ -1,7 +1,6 @@
 #read-records.s
 .include "linux.s"
 .include "record-def.s"
-.include "write-record.s"
 
 .section .data
 file_name:
@@ -44,8 +43,8 @@ record_read_loop:
 
 	jne finished_reading
 	
-	pushl ST_FILE_DESCRIPTOR(%ebp)#write one 
-	pushl $record1
+	pushl ST_OUTPUT_DESCRIPTOR(%ebp)#write one 
+	pushl $record_buffer
 	call write_record
 	addl $8,%esp
 
