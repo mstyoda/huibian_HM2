@@ -25,7 +25,7 @@ _start:
 	movl %esp,%ebp
 	
 	subl $4,%esp #openfile
-	movl $file_name %ebx
+	movl $file_name,%ebx
 	movl $0101,%ecx
 	int $LINUX_SYSCALL
 
