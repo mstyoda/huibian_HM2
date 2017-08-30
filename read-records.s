@@ -51,7 +51,8 @@ record_read_loop:
 	pushl $record_buffer
 	call write_record
 	addl $8,%esp
-
+	call record_read_loop
+	
 finished_reading:
 	movl $0, %ebx
 	movl $1, %eax
