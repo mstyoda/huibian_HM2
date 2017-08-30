@@ -1,6 +1,6 @@
 #read-records.s
 .include "linux.s"
-.include "read-def.s"
+.include "record-def.s"
 .include "write-record.s"
 
 .section .data
