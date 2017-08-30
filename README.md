@@ -1,8 +1,8 @@
 # huibian_HM2
 
-as -o --32 my-object-file.o helloworld.s
+as -gstabs -o helloworld.o helloworld.s --32
 
-ld -o -m elf_i386 my-exe-file my-object-file.o
+ld -m elf_i386 -o helloworld helloworld.o
 可以有多个.o文件。
 
 sudo apt-get install g++-multilib
