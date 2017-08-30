@@ -25,8 +25,10 @@ _start:
 	movl %esp,%ebp
 	
 	subl $4,%esp #openfile
+	movl $SYS_OPEN
 	movl $file_name,%ebx
 	movl $0101,%ecx
+	movl $0666,%edx
 	int $LINUX_SYSCALL
 
 	movl %eax,ST_FILE_DESCRIPTOR(%ebp)#write record1
@@ -40,4 +42,3 @@ _start:
 	int $LINUX_SYSCALL
 
 	movl %ebp,%esp
-		
